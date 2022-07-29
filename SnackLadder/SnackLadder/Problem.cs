@@ -8,11 +8,13 @@ namespace SnackLadder
 {
     public class Problem
     {
-        const int position = 0;
-        public void DieRoll()
+        
+        public int DieRoll()
         {
             
-            Console.WriteLine(position);
+          Random random = new Random();
+          int Roll = random.Next(1,7);
+            return Roll;
         }
     }
 }

@@ -5,7 +5,8 @@
         public static void Main(string[] args)
         {
             Problem problem = new Problem();
-            problem.DieRoll();
+            int pos =  problem.DieRoll();
+            Console.WriteLine("You got: "+pos);
         }
     }
 }
