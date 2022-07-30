@@ -10,35 +10,38 @@ namespace SnackLadder
     {
         const int NO_PLAY = 0, SNAKE = 1, LADDER = 2;
         int position = 0;
-        public int DieRoll()
-        {
-            
-          Random random = new Random();
-          int Roll = random.Next(1,7);
-            Console.WriteLine("Die Number is: " + Roll);
-            return Roll;
-        }
-        public void PlayingGame()
+        public int dieRoll()
         {
             Random random = new Random();
-            int CheckPlayer = random.Next(0,3);
-            switch(CheckPlayer)
+            int diePosition = random.Next(1, 7);
+            return diePosition;
+        }
+        public void gamePlaying()
+        {
+            while (this.position < 100)
             {
-                case 0:
-                    this.position += 0;
-                    break;
-                case 1:
-                    this.position -= this.DieRoll();
-                    
-                    break;
-                case 2:
-                    this.position+=this.DieRoll();
-                    
-                    break;
+                Random random = new Random();
+                int roll = random.Next(0, 3);
 
-                    
+                switch (roll)
+                {
+                    case NO_PLAY:
+                        this.position += 0;
+                        break;
+                    case SNAKE:
+                        this.position -= this.dieRoll();
+                        if (this.position < 0)
+                        {
+                            this.position = 0;
+                        }
+                        break;
+                    case LADDER:
+                        this.position += this.dieRoll();
+                        break;
+                }
 
             }
+            Console.WriteLine("You Have got " + this.position + " " + " Number");
         }
     }
 }
