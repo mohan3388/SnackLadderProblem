@@ -10,6 +10,7 @@ namespace SnackLadder
     {
         const int NO_PLAY = 0, SNAKE = 1, LADDER = 2;
         int position = 0;
+        int count = 0;
         public int dieRoll()
         {
             Random random = new Random();
@@ -44,9 +45,13 @@ namespace SnackLadder
                         }
                         break;
                 }
+                count++;
 
             }
+            Console.WriteLine("The number of Dice to win the match" + "  " + count);
             Console.WriteLine("You Have win with " + this.position + " " + " Number");
+
         }
+
     }
 }
